@@ -16,6 +16,7 @@ import ChartNew from "@/components/Chart";
 export default {
   name: "AnalyticPage",
   components: {ChartNew},
+
 }
 </script>
 
@@ -24,21 +25,22 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  flex: 1 1 auto;
+  height: 100vh;
   &__title {
     align-self: center;
   }
-
   &__chart {
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
 
   &__chart-title {
-    margin: 0 auto;
+   padding: 20px;
   }
 
-  &__chart__body {
-  }
 }
 </style>

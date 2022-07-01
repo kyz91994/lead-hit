@@ -1,4 +1,4 @@
-export const authModule = {
+export const loginModule = {
     state: () => ({
 
     }),
