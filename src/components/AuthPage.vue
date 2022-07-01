@@ -53,7 +53,6 @@ export default {
   gap: 10px;
   align-self: center;
   justify-self: center;
-
   &__title {
   }
 }

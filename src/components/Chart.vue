@@ -6,6 +6,7 @@
 <script>
 import * as am5 from '@amcharts/amcharts5';
 import * as am5xy from '@amcharts/amcharts5/xy';
+import am5locales_ru_RU from "@amcharts/amcharts5/locales/ru_RU";
 import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 export default {
   name: 'ChartNew',
@@ -15,63 +16,56 @@ export default {
     root.setThemes([
       am5themes_Animated.new(root)
     ]);
-    // root.dateFormatter.set("dateFormat", "yyyy-MM-dd")
-    root.dateFormatter.set("intlLocales", "ru")
+    root.locale = am5locales_ru_RU
 
+    root.dateFormatter.set("intlLocales", 'ru')
 
-// Create chart
-// https://www.amcharts.com/docs/v5/charts/xy-chart/
     let chart = root.container.children.push(am5xy.XYChart.new(root, {
-      panX: true,
-      panY: true,
-      wheelX: "panX",
-      wheelY: "zoomX",
-      pinchZoomX:true
+      panX: false,
+      panY: false,
+      pinchZoomX:false,
     }));
 
-// Add cursor
-// https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
     let cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
       behavior: "none"
     }));
     cursor.lineY.set("visible", false);
     cursor.lineX.set("visible", false);
 
-// Create axes
-// https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+    let xRenderer = am5xy.AxisRendererX.new(root, {
+      strokeOpacity: 0.5
+    });
+    xRenderer.grid.template.set("visible", false);
+    let yRenderer = am5xy.AxisRendererY.new(root, {
+      strokeOpacity: 0.5
+    });
+    yRenderer.grid.template.set("visible", false);
     let xAxis = chart.xAxes.push(am5xy.DateAxis.new(root, {
       maxDeviation: 0.5,
       baseInterval: {
         timeUnit: "day",
         count: 1
       },
-      renderer: am5xy.AxisRendererX.new(root, {
-        pan:"zoom"
-      }),
+      renderer:  xRenderer,
       tooltip: am5.Tooltip.new(root, {
-        tooltipText: "{categoryX}"
+
       })
     }));
-
     let yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
       maxDeviation:1,
-      renderer: am5xy.AxisRendererY.new(root, {
-        pan:"zoom"
-      })
+      renderer: yRenderer
     }));
     xAxis.set()
     xAxis.get("dateFormats")["day"] = {month: "long", day: "numeric"};
     xAxis.get("periodChangeDateFormats")["day"] = {month: "long", day: "numeric"};
 
-
-// Add series
-// https://www.amcharts.com/docs/v5/charts/xy-chart/series/
     let series = chart.series.push(am5xy.SmoothedXLineSeries.new(root, {
       name: "Series",
       xAxis: xAxis,
       yAxis: yAxis,
       valueYField: "visits",
       valueXField: "date",
+      fill:am5.color('#7411B2'),
       tooltip: am5.Tooltip.new(root, {
         labelText: "Визиты: {valueY}",
       })
@@ -81,6 +75,7 @@ export default {
       visible: true,
       fillOpacity: 0.2
     });
+
 
     series.bullets.push(function() {
       return am5.Bullet.new(root, {
@@ -93,12 +88,8 @@ export default {
         })
       });
     });
+    series.strokes.template.set("stroke", '#7411B2');
 
-
-
-    // chart.set("scrollbarX", am5.Scrollbar.new(root, {
-    //   orientation: "horizontal"
-    // }));
         let data = [
       {"date":"2020-07-01","visits":213},
       {"date":"2020-07-02","visits":249},
