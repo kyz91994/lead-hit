@@ -52,6 +52,7 @@ export default {
   justify-self: center;
 
   &__title {
+    font-size: 72px;
   }
 }
 

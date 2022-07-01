@@ -1,6 +1,6 @@
 <template>
   <div class="analytic-page">
-    <h1 class="analytic-page__title">Аналитика</h1>
+    <h2 class="analytic-page__title">Аналитика</h2>
     <div class="analytic-page__chart">
       <div class="analytic-page__chart-title">
         Аналитика по визитам

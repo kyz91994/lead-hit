@@ -10,6 +10,7 @@
 
 <script>
 import CustomButton from "@/components/UI/CustomButton";
+
 export default {
   components: {CustomButton},
   methods:{
