@@ -1,12 +1,12 @@
 <template>
-  <nav-bar/>
+  <nav-bar class="navbar"/>
   <div class="container">
     <router-view></router-view>
   </div>
 </template>
 
 <style lang="scss">
-.container{
+.container {
   display: flex;
   padding: 20px;
   justify-content: center;
@@ -18,6 +18,7 @@
 
 <script>
 import NavBar from "@/components/NavBar";
+
 export default {
   components: {NavBar},
   mounted() {

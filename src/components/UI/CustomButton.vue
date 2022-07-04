@@ -1,14 +1,14 @@
 <template>
-<button class="btn">
-  <slot></slot>
-</button>
+  <button class="btn">
+    <slot></slot>
+  </button>
 </template>
 
 <script>
 export default {
   name: "CustomButton",
-  props:{
-    disabled:{
+  props: {
+    disabled: {
       type: [Boolean]
     }
   }
@@ -16,20 +16,30 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.btn{
-  width: 284px;
+.btn {
+  max-width: 284px;
+  min-width: 162px;
   height: 36px;
-  border-radius: 10px;
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 12px;
-  font-style: normal;
-  line-height: 15px;
+  font-size: 16px;
+  border-radius: 5px;
   color: #FFF;
-  background-color: #7BAE73;
-}
-.disable{
-  background-color: #EEEEEE;
-  color: #B4B4B4;
+  background-color: #ff4402;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: #ee6230;
+  }
+
+  .link {
+    max-width: 284px;
+    min-width: 162px;
+    height: 36px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: 0.3s;
+    background: none;
+    border: 1px solid #ff4402;
+    color: #ff4402;
+  }
 }
 </style>

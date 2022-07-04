@@ -1,21 +1,21 @@
 <template>
   <div class="analytic-page">
-    <h2 class="analytic-page__title">Аналитика</h2>
+    <h1 class="analytic-page__title">Аналитика</h1>
     <div class="analytic-page__chart">
       <div class="analytic-page__chart-title">
         Аналитика по визитам
       </div>
-      <chart-new/>
+      <chart-x-y/>
     </div>
   </div>
 </template>
 
 <script>
+import ChartXY from "@/components/Chart";
 
-import ChartNew from "@/components/Chart";
 export default {
   name: "AnalyticPage",
-  components: {ChartNew},
+  components: {ChartXY},
 
 }
 </script>
@@ -24,12 +24,15 @@ export default {
 .analytic-page {
   display: flex;
   flex-direction: column;
-  gap: 10px;
   flex: 1 1 auto;
   height: 100vh;
+
   &__title {
+    margin: 20px;
     align-self: center;
+    font-size: 72px;
   }
+
   &__chart {
     flex: 1 1 auto;
     display: flex;
@@ -39,7 +42,8 @@ export default {
   }
 
   &__chart-title {
-   padding: 20px;
+    padding: 20px;
+    font-size: 16px;
   }
 
 }

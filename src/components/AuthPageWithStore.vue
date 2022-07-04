@@ -20,8 +20,8 @@ export default {
     ...mapActions({
       requestLead: 'requestLead'
     }),
-    submitId(id){
-      this.requestLead(id).then(()=>{
+    submitId(id) {
+      this.requestLead(id).then(() => {
         this.$router.push('/analytic')
       })
     }
