@@ -1,12 +1,12 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import AnalyticPage from "@/components/AnaliticPage";
-import AuthPageWithStore from "@/components/AuthPageWithStore";
+import AuthPage from "@/components/AuthPage";
 import NotFoundPage from "@/components/NotFoundPage"
 
 const routes = [
     {
         path: '/',
-        component: AuthPageWithStore
+        component: AuthPage
     },
     {
         path: '/analytic',
